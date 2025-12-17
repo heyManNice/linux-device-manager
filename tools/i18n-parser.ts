@@ -1,11 +1,11 @@
-import lang, { supports } from '../src/lang.ts';
+import lang, { supports } from '../i18n/lang.ts';
 import fs from 'fs';
 import path from 'path';
 import { po2mo } from './utils.ts';
 
-const header = `msgid ""
-msgstr ""
-"Content-Type: text/plain; charset=UTF-8\\n"`;
+const header = `msgid ""\nmsgstr ""
+"Content-Type: text/plain; charset=UTF-8\\n"
+`;
 
 async function main() {
     for (const locale of supports) {
@@ -29,8 +29,8 @@ async function main() {
         }
 
         await po2mo(`./dist/temp.po`, path.join(localeDir, 'ldm.mo'));
-        fs.unlinkSync(`./dist/temp.po`);
     }
+    fs.unlinkSync(`./dist/temp.po`);
     console.log(`successfully.`);
 }
 
