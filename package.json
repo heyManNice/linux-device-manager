@@ -1,0 +1,13 @@
+{
+  "name": "linux-device-manager",
+  "version": "0.0.0",
+  "scripts": {
+    "configure": "cmake -S . -B build",
+    "build": "cmake --build build",
+    "run": "./build/ldm",
+    "i18n": "bun ./tools/i18n-parser.ts"
+  },
+  "dependencies": {
+    "@types/node": "^25.0.3"
+  }
+}
