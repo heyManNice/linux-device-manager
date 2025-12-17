@@ -10,10 +10,16 @@ const char *operator"" _t(const char *str, std::size_t)
 
 namespace ldm::i18n
 {
-    void init()
+    class Init
     {
-        setlocale(LC_ALL, "");
-        bindtextdomain("ldm", "./dist/locale");
-        textdomain("ldm");
-    }
+    public:
+        Init()
+        {
+            setlocale(LC_ALL, "");
+            bindtextdomain("ldm", "./dist/locale");
+            textdomain("ldm");
+        }
+    };
+
+    static Init init_guard;
 }
