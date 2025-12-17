@@ -4,6 +4,6 @@
 int main()
 {
     ldm::i18n::init();
-    std::cout << _("Hello World!") << std::endl;
+    std::cout << "Hello World!"_t << std::endl;
     return 0;
 }

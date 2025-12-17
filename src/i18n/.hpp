@@ -1,7 +1,7 @@
 #pragma once
-#include <libintl.h>
+#include <cstddef>
 
-#define _(str) gettext(str)
+const char *operator"" _t(const char *str, std::size_t);
 
 namespace ldm::i18n
 {
