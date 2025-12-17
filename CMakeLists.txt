@@ -7,9 +7,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_compile_options(-Wall -Wextra -Wpedantic)
 
-set(SOURCES
-    src/main.cpp
+include_directories(${CMAKE_SOURCE_DIR}/src)
+
+file(GLOB_RECURSE SOURCES 
+    "${CMAKE_SOURCE_DIR}/src/*.cpp"
 )
 
 add_executable(ldm ${SOURCES})
-
