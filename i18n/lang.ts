@@ -1,12 +1,4 @@
-export const supports = [
-    'zh_CN',
-] as const;
-
-type Lang = {
-    [key: string]: {
-        [key in typeof supports[number]]?: string;
-    }
-};
+import type { Lang } from './main.ts'
 
 const lang: Lang = {
     'Hello World!': {

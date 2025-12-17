@@ -1,4 +1,5 @@
-import lang, { supports } from '../i18n/lang.ts';
+import lang from '../i18n/lang.ts';
+import { supports } from '../i18n/main.ts'
 import fs from 'fs';
 import path from 'path';
 import { po2mo } from './utils.ts';
