@@ -13,7 +13,9 @@ public:
         button.set_label("Click Me");
         button.signal_clicked().connect(sigc::mem_fun(*this, &HelloWorld::on_button_clicked));
 
-        set_child(button);
+        add(button);
+
+        show_all_children();
     }
 
 protected:
@@ -26,29 +28,10 @@ private:
     Gtk::Button button;
 };
 
-class LDMApp : public Gtk::Application
-{
-protected:
-    LDMApp()
-        : Gtk::Application("com.ldm.test") {}
-
-    void on_activate() override
-    {
-        auto win = new HelloWorld();
-        add_window(*win);
-        win->present();
-    }
-
-public:
-    static Glib::RefPtr<LDMApp> create()
-    {
-        return Glib::RefPtr<LDMApp>(new LDMApp());
-    }
-};
-
-int main(int argc, char *argv[])
+int main()
 {
     std::cout << "Hello World!"_t << std::endl;
-    auto app = LDMApp::create();
-    return app->run(argc, argv);
+    auto app = Gtk::Application::create("com.ldm.test");
+    HelloWorld window;
+    return app->run(window);
 }
