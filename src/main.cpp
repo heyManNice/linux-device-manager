@@ -7,7 +7,7 @@ class HelloWorld : public Gtk::Window
 public:
     HelloWorld()
     {
-        set_title("Hello World");
+        set_title("linux device manager"_t);
         set_default_size(800, 600);
 
         button.set_label("Click Me");
