@@ -1,4 +1,4 @@
-#include "gui.hpp"
+#include "gui/gui.hpp"
 #include "i18n/i18n.hpp"
 #include "model/model.hpp"
 #include "backend/backend.hpp"
