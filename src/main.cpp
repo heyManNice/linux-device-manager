@@ -1,36 +1,33 @@
 #include <gtkmm.h>
-#include <iostream>
 #include "i18n/.hpp"
 
 class HelloWorld : public Gtk::Window
 {
+private:
+    Gtk::Paned paned;
+    Gtk::TreeView tree_view;
+    Gtk::Label label;
+
 public:
     HelloWorld()
     {
         set_title("linux device manager"_t);
         set_default_size(800, 600);
 
-        button.set_label("Click Me");
-        button.signal_clicked().connect(sigc::mem_fun(*this, &HelloWorld::on_button_clicked));
+        paned.set_position(200);
+        paned.add1(tree_view);
 
-        add(button);
+        add(paned);
+
+        label.set_text("Test"_t);
+        paned.add2(label);
 
         show_all_children();
     }
-
-protected:
-    void on_button_clicked()
-    {
-        button.set_label("Hello GTKmm!");
-    }
-
-private:
-    Gtk::Button button;
 };
 
 int main()
 {
-    std::cout << "Hello World!"_t << std::endl;
     auto app = Gtk::Application::create("com.ldm.test");
     HelloWorld window;
     return app->run(window);
