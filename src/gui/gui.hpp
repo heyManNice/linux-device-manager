@@ -13,16 +13,6 @@ namespace ldm::gui
 
             Gtk::TreeView tree_view;
 
-            class ModelColumns : public Gtk::TreeModel::ColumnRecord
-            {
-            public:
-                ModelColumns() { add(col_name); }
-                Gtk::TreeModelColumn<Glib::ustring> col_name;
-            };
-
-            ModelColumns columns;
-            Glib::RefPtr<Gtk::ListStore> liststore;
-
         public:
             main();
         };

@@ -1,5 +1,6 @@
 #include "gui.hpp"
 #include "i18n/i18n.hpp"
+#include "model/model.hpp"
 
 namespace ldm::gui
 {
@@ -17,16 +18,11 @@ namespace ldm::gui
             label.set_text("Test"_t);
             paned.add2(label);
 
-            liststore = Gtk::ListStore::create(columns);
-            tree_view.set_model(liststore);
+            ldm::model::devices device_model;
 
-            tree_view.append_column("devices", columns.col_name);
+            tree_view.set_model(device_model.liststore);
 
-            Gtk::TreeModel::Row row1 = *(liststore->append());
-            row1[columns.col_name] = "disk sda";
-
-            Gtk::TreeModel::Row row2 = *(liststore->append());
-            row2[columns.col_name] = "network eth0";
+            tree_view.append_column("devices", device_model.columns.col_name);
 
             show_all_children();
         }
