@@ -18,11 +18,9 @@ namespace ldm::gui
             label.set_text("Test"_t);
             paned.add2(label);
 
-            ldm::model::devices device_model;
+            tree_view.set_model(model::devices::liststore);
 
-            tree_view.set_model(device_model.liststore);
-
-            tree_view.append_column("devices", device_model.columns.col_name);
+            tree_view.append_column("devices", model::devices::col_devs);
 
             show_all_children();
         }

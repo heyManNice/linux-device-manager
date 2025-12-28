@@ -10,9 +10,8 @@ const char *operator"" _t(const char *str, std::size_t)
 
 namespace ldm::i18n
 {
-    class Init
+    struct Init
     {
-    public:
         Init()
         {
             setlocale(LC_ALL, "");
@@ -21,5 +20,5 @@ namespace ldm::i18n
         }
     };
 
-    static Init init_guard;
+    static Init initializer;
 }

@@ -2,14 +2,25 @@
 
 namespace ldm::model
 {
-    devices::devices()
+    namespace devices
     {
-        liststore = Gtk::ListStore::create(columns);
+        Glib::RefPtr<Gtk::ListStore> liststore;
+        Gtk::TreeModelColumn<Glib::ustring> col_devs;
+        Gtk::TreeModel::ColumnRecord columns;
 
-        Gtk::TreeModel::Row row1 = *(liststore->append());
-        row1[columns.col_name] = "disk sda";
+        struct Init
+        {
+            Init()
+            {
+                columns.add(col_devs);
+                liststore = Gtk::ListStore::create(columns);
 
-        Gtk::TreeModel::Row row2 = *(liststore->append());
-        row2[columns.col_name] = "network eth0";
+                Gtk::TreeModel::Row row1 = *(liststore->append());
+                row1[col_devs] = "disk sda";
+                Gtk::TreeModel::Row row2 = *(liststore->append());
+                row2[col_devs] = "network eth0";
+            }
+        };
+        static Init initializer;
     }
 }
