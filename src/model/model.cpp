@@ -15,8 +15,9 @@ namespace ldm::model
                 columns.add(col_devs);
                 liststore = Gtk::ListStore::create(columns);
 
-                (*liststore->append())[col_devs] = "disk sda";
-                (*liststore->append())[col_devs] = "network eth0";
+                (*liststore->append())[col_devs] = "设备 /dev";
+                (*liststore->append())[col_devs] = "系统 /sys";
+                (*liststore->append())[col_devs] = "进程 /proc";
             }
         };
         static Init initializer;

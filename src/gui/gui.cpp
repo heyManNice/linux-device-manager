@@ -1,6 +1,7 @@
 #include "gui.hpp"
 #include "i18n/i18n.hpp"
 #include "model/model.hpp"
+#include "backend/backend.hpp"
 
 namespace ldm::gui
 {
@@ -20,7 +21,7 @@ namespace ldm::gui
 
             tree_view.set_model(model::devices::liststore);
 
-            tree_view.append_column("devices", model::devices::col_devs);
+            tree_view.append_column(backend::kernel::get_kernel_version(), model::devices::col_devs);
 
             show_all_children();
         }
