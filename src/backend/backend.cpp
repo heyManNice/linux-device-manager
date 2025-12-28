@@ -6,7 +6,7 @@ namespace ldm::backend
 {
     namespace kernel
     {
-        std::string get_kernel_version()
+        std::string version()
         {
             struct utsname buffer;
             if (uname(&buffer) != 0)

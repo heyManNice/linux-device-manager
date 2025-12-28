@@ -5,6 +5,6 @@ namespace ldm::backend
 {
     namespace kernel
     {
-        std::string get_kernel_version();
+        std::string version();
     }
 }
