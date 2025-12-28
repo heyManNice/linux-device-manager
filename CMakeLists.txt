@@ -13,4 +13,14 @@ file(GLOB_RECURSE SOURCES
     "${CMAKE_SOURCE_DIR}/src/*.cpp"
 )
 
+find_package(PkgConfig REQUIRED)
+
+pkg_check_modules(GTKMM REQUIRED gtkmm-4.0)
+
 add_executable(ldm ${SOURCES})
+
+
+
+target_include_directories(ldm PRIVATE ${GTKMM_INCLUDE_DIRS})
+target_link_libraries(ldm PRIVATE ${GTKMM_LIBRARIES})
+target_compile_options(ldm PRIVATE ${GTKMM_CFLAGS_OTHER})
