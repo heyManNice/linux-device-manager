@@ -5,7 +5,7 @@ namespace ldm::gui
 {
     namespace window
     {
-        class main : public Gtk::Window
+        class Main : public Gtk::Window
         {
         private:
             Gtk::Paned paned;
@@ -14,7 +14,7 @@ namespace ldm::gui
             Gtk::TreeView tree_view;
 
         public:
-            main();
+            Main();
         };
     }
 }

@@ -7,7 +7,7 @@ namespace ldm::gui
 {
     namespace window
     {
-        main::main()
+        Main::Main()
         {
             set_title("linux device manager"_t);
             set_default_size(800, 600);
